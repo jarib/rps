@@ -1,0 +1,2 @@
+require "rps"
+require "stringio"
