@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Jari Bakken"]
   s.email       = ["jari.bakken@gmail.com"]
-  s.homepage    = "http://rubygems.org/gems/rps"
+  s.homepage    = "http://github.com/jarib/rps"
   s.summary     = "Ruby Process Status"
   s.description = "ps for Ruby processes"
 
