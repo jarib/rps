@@ -1,5 +1,5 @@
 module RPS
-  class ProcessEntry
+  class LinuxProcess
     def self.all
       Dir['/proc/*'].map { |dir| new(dir) if File.basename(dir) =~ /^\d+$/ }.compact
     end
@@ -37,5 +37,5 @@ module RPS
     def cmdline_path
       File.join(@dir, "cmdline")
     end
-  end # ProcessEntry
+  end # LinuxProcess
 end # RPS

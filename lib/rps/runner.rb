@@ -14,7 +14,7 @@ module RPS
     private
 
     def procs
-      @procs ||= ProcessEntry.all
+      @procs ||= RPS.all
     end
   end # Runner
 end # RPS

@@ -6,7 +6,7 @@ module RPS
     let(:ui)     { UI.new(io) }
 
     it "renders the given proc" do
-      pe = mock(ProcessEntry,
+      pe = mock(
         :exe          => "/usr/bin/ruby1.8",
         :pid          => 123,
         :command_line => %w[ruby -e sleep]
