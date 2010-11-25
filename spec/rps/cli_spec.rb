@@ -3,11 +3,11 @@ require 'spec_helper'
 module RPS
   describe CLI do
     it "creates a default runner" do
-      runner = mock(Runner)
+      runner = mock(Runner, :ui => nil)
 
       Runner.should_receive(:new).and_return(runner)
-      runner.should_receive(:ui=).with(instance_of(UI))
       runner.should_receive(:run)
+      runner.should_receive(:ui=).with(instance_of(UI))
 
       CLI.new.run
     end
