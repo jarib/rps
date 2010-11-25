@@ -9,7 +9,7 @@ module RPS
   }
 
   def self.platform
-    @os ||= (
+    @platform ||= (
       host_os = RbConfig::CONFIG['host_os']
       case host_os
       when /mswin|msys|mingw32/
@@ -35,7 +35,7 @@ module RPS
   end
 
   def self.all
-    clazz = PLATFORMS[os] or raise platform_message
+    clazz = PLATFORMS[platform] or raise platform_message
     const_get(clazz).all
   end
 
