@@ -1,4 +1,7 @@
 #!/usr/bin/env ruby
 
 require "rps"
+
+RPS.check_platform
+
 RPS::CLI.new(ARGV).run

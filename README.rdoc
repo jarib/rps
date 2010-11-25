@@ -6,7 +6,12 @@ ps for Ruby processes. Linux only at the moment.
 
 $ rps
 
-= Description
+= TODO:
+
+* BSD/OS X ?
+  - FFI
+  - kvm_getprocs() http://www.manpages.info/macosx/kvm_getprocs.3.html
+  - http://www.opensource.apple.com/source/adv_cmds/adv_cmds-138.1/ps/
 
 == Note on Patches/Pull Requests
 

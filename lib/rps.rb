@@ -1,5 +1,15 @@
+require "rbconfig"
+
 module RPS
-  # Your code goes here...
+  def self.os
+    @os ||= RbConfig::CONFIG['host_os']
+  end
+
+  def self.check_platform
+    unless os =~ /linux/i
+      abort "rps only works on linux at the moment"
+    end
+  end
 end
 
 require "rps/cli"
