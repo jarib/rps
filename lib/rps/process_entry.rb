@@ -24,10 +24,18 @@ module RPS
       @pid ||= Integer(File.basename(@dir))
     end
 
+    def command_line
+      @command_line ||= File.read(cmdline_path).split("\000")
+    end
+
     private
 
     def exe_path
-      @exe_path ||= File.join(@dir, "exe")
+      File.join(@dir, "exe")
+    end
+
+    def cmdline_path
+      File.join(@dir, "cmdline")
     end
   end # ProcessEntry
 end # RPS

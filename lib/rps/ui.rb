@@ -6,11 +6,15 @@ module RPS
     end
 
     def render(process)
-      @io.puts format_string % [process.pid, process.exe]
+      string = format_string % [ process.pid,
+                                 process.exe,
+                                 process.command_line.join(' ') ]
+
+      @io << string
     end
 
     def format_string
-      "%d %s"
+      "%d [%s] %s\n"
     end
   end # RPS
 end # UI

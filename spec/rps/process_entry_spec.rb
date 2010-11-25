@@ -21,6 +21,11 @@ module RPS
       ProcessEntry.new("/proc/1").exe.should == "/some/executable"
     end
 
+    it "returns the command line" do
+      File.stub!(:read).with("/proc/1/cmdline").and_return("ruby\000-e\000sleep\000")
+      ProcessEntry.new("/proc/1").command_line.should == ["ruby", "-e", "sleep"]
+    end
+
     it "knows if the process is a ruby process" do
       pe = ProcessEntry.new("/proc/1")
       pe.stub!(:exe).and_return "/path/to/ruby"
