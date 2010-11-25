@@ -8,6 +8,6 @@ module RPS
     def run
       @runner.run
     end
-    
+
   end # CLI
 end # RPS

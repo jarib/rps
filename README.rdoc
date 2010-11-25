@@ -1,6 +1,6 @@
 = rps
 
-ps for Ruby processes.
+ps for Ruby processes. Linux only at the moment.
 
 = Example
 

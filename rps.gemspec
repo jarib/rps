@@ -3,18 +3,20 @@ require File.expand_path("../lib/rps/version", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = "rps"
-  s.version     = Rps::VERSION
+  s.version     = RPS::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = []
-  s.email       = []
+  s.authors     = ["Jari Bakken"]
+  s.email       = ["jari.bakken@gmail.com"]
   s.homepage    = "http://rubygems.org/gems/rps"
-  s.summary     = "TODO: Write a gem summary"
-  s.description = "TODO: Write a gem description"
+  s.summary     = "Ruby Process Status"
+  s.description = "ps for Ruby processes"
 
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project         = "rps"
 
   s.add_development_dependency "bundler", ">= 1.0.0"
+  s.add_development_dependency "rspec", ">= 2.0.0"
+  s.add_development_dependency "autotest", ">= 4.4.5"
 
   s.files        = `git ls-files`.split("\n")
   s.executables  = `git ls-files`.split("\n").map{|f| f =~ /^bin\/(.*)/ ? $1 : nil}.compact
