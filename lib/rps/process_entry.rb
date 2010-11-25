@@ -8,6 +8,10 @@ module RPS
       @dir = dir
     end
 
+    def readable?
+      File.stat(@dir).uid == Process.uid || Process.uid == 0
+    end
+
     def ruby?
       exe.include? "ruby" # is this good enough?
     end

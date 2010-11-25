@@ -8,7 +8,7 @@ module RPS
 
     def run
       raise "no ui provided" unless ui
-      procs.each { |proc| ui.render proc if proc.ruby?  }
+      procs.each { |proc| ui.render proc if proc.readable? && proc.ruby?  }
     end
 
     private

@@ -10,11 +10,12 @@ module RPS
       runner.run
     end
 
-    it "shows each ruby process on the UI" do
+    it "shows each readable ruby process on the UI" do
       procs = [
-        mock(ProcessEntry, :ruby? => true),
-        mock(ProcessEntry, :ruby? => false),
-        mock(ProcessEntry, :ruby? => true)
+        mock(ProcessEntry, :ruby? => true, :readable? => true),
+        mock(ProcessEntry, :ruby? => false, :readable? => true),
+        mock(ProcessEntry, :ruby? => true, :readable? => false),
+        mock(ProcessEntry, :ruby? => true, :readable? => true)
       ]
       ProcessEntry.should_receive(:all).and_return(procs)
 
