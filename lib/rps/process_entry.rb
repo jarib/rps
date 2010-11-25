@@ -9,7 +9,7 @@ module RPS
     end
 
     def readable?
-      File.stat(@dir).uid == Process.uid || Process.uid == 0
+      File.readable? exe_path
     end
 
     def ruby?
@@ -17,7 +17,7 @@ module RPS
     end
 
     def exe
-      @exe ||= File.readlink(path_to('exe'))
+      @exe ||= File.readlink(exe_path)
     end
 
     def pid
@@ -26,8 +26,8 @@ module RPS
 
     private
 
-    def path_to(file)
-      File.join(@dir, file)
+    def exe_path
+      @exe_path ||= File.join(@dir, "exe")
     end
   end # ProcessEntry
 end # RPS

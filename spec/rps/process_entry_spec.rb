@@ -35,32 +35,22 @@ module RPS
       pe.should_not be_ruby
     end
 
-    describe "when we're root" do
-      it "knows if the process is readable" do
-        File.stub!(:stat).and_return(mock(:uid => 0))
-        Process.stub!(:uid).and_return(0)
+    it "knows if the process is readable" do
+      File.should_receive(:readable?).
+           with("/proc/1/exe").
+           and_return(true)
 
-        pe = ProcessEntry.new("/proc/1")
-        pe.should be_readable
-      end
+      pe = ProcessEntry.new("/proc/1")
+      pe.should be_readable
     end
 
-    describe "when we're not root" do
-      it "knows when the process is readable" do
-        File.stub!(:stat).and_return(mock(:uid => 1000))
-        Process.stub!(:uid).and_return(0)
+    it "knows if the process isn't readable" do
+      File.should_receive(:readable?).
+           with("/proc/1/exe").
+           and_return(false)
 
-        pe = ProcessEntry.new("/proc/1")
-        pe.should be_readable
-      end
-
-      it "knows if the process isn't readable" do
-        File.stub!(:stat).and_return(mock(:uid => 0))
-        Process.stub!(:uid).and_return(1000)
-
-        pe = ProcessEntry.new("/proc/1")
-        pe.should_not be_readable
-      end
+      pe = ProcessEntry.new("/proc/1")
+      pe.should_not be_readable
     end
 
   end
