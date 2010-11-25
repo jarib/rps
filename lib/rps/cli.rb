@@ -3,6 +3,7 @@ module RPS
 
     def initialize(args = nil)
       @runner = Runner.new
+      @runner.ui = UI.new
     end
 
     def run

@@ -6,6 +6,7 @@ module RPS
       runner = mock(Runner)
 
       Runner.should_receive(:new).and_return(runner)
+      runner.should_receive(:ui=).with(instance_of(UI))
       runner.should_receive(:run)
 
       CLI.new.run
