@@ -10,7 +10,7 @@ $ rps
 
 * BSD/OS X ?
   - FFI
-  - kvm_getprocs() http://www.manpages.info/macosx/kvm_getprocs.3.html
+  - sysctl
   - http://www.opensource.apple.com/source/adv_cmds/adv_cmds-138.1/ps/
 
 == Note on Patches/Pull Requests
@@ -25,4 +25,4 @@ $ rps
 
 == Copyright
 
-Copyright (c) 2010 Jari Bakken. See LICENSE for details.
+Copyright (c) 2010-2011 Jari Bakken. See LICENSE for details.
