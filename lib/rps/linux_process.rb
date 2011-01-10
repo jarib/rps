@@ -1,5 +1,7 @@
 module RPS
   class LinuxProcess
+    NULL = "\000"
+
     def self.all
       Dir['/proc/*'].map { |dir| new(dir) if File.basename(dir) =~ /^\d+$/ }.compact
     end
@@ -25,7 +27,16 @@ module RPS
     end
 
     def command_line
-      @command_line ||= File.read(cmdline_path).split("\000")
+      @command_line ||= File.read(cmdline_path).split(NULL)
+    end
+
+    def environment
+      @environment ||= (
+        strings = File.read(environ_path).split(NULL)
+        data = strings.map { |e| e.split("=") }
+
+        Hash[data]
+      )
     end
 
     private
@@ -36,6 +47,10 @@ module RPS
 
     def cmdline_path
       File.join(@dir, "cmdline")
+    end
+
+    def environ_path
+      File.join(@dir, "environ")
     end
   end # LinuxProcess
 end # RPS
