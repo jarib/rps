@@ -26,6 +26,10 @@ module RPS
       @pid ||= Integer(File.basename(@dir))
     end
 
+    def cwd
+      @cwd ||= File.readlink(cwd_path)
+    end
+
     def command_line
       @command_line ||= File.read(cmdline_path).split(NULL)
     end
@@ -51,6 +55,10 @@ module RPS
 
     def environ_path
       File.join(@dir, "environ")
+    end
+
+    def cwd_path
+      File.join(@dir, 'cwd')
     end
   end # LinuxProcess
 end # RPS

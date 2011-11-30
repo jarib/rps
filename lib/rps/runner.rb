@@ -4,6 +4,7 @@ module RPS
 
     def initialize(ui = nil)
       @ui = ui
+      @opts = {}
     end
 
     def run

@@ -5,7 +5,8 @@ require "rps/ui"
 
 module RPS
   PLATFORMS = {
-    :linux => "LinuxProcess"
+    :linux  => "LinuxProcess",
+    :macosx => "MacOSXProcess"
   }
 
   def self.platform
@@ -45,4 +46,6 @@ module RPS
 
   autoload :LinuxProcess, "rps/linux_process"
   autoload :BsdProcess, "rps/bsd_process"
+  autoload :MacOSXProcess, "rps/macosx_process"
+
 end
